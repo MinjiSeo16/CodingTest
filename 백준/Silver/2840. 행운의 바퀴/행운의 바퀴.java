@@ -19,7 +19,7 @@ public class Main {
             char ch = st.nextToken().charAt(0); 
 
             position = (position - S % N + N) % N;
-
+            
             if (wheel[position] == ch) {
                 continue;  
             } else if (wheel[position] != '?' && wheel[position] != ch) {
