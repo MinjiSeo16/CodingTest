@@ -4,17 +4,19 @@ import java.util.*;
 public class Main{
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
         int N = Integer.parseInt(br.readLine());
         
-        int[] arr = new int[N];
+        ArrayList<Integer> list = new ArrayList<>();
         for(int i=0; i<N; i++){
-            arr[i] = Integer.parseInt(br.readLine());
+            list.add(Integer.parseInt(br.readLine()));
         }
         
-        Arrays.sort(arr);
+        Collections.sort(list);
         
-        for(int i : arr){
-            System.out.println(i);
+        for(int i : list){
+            sb.append(i).append('\n');
         }
+        System.out.println(sb);
     }
 }
