@@ -16,11 +16,11 @@ public class Main{
              arr[i][1] = Integer.parseInt(st.nextToken());
          }
          
-         Arrays.sort(arr,(a,b)->{
-             if(a[1]==b[1]){ //y가 같으면 
-                 return a[0] - b[0]; //x값 비교
+         Arrays.sort(arr, (e1, e2)->{
+             if(e1[1] == e2[1]){ 
+                 return e1[0] - e2[0]; 
              }else{
-                 return a[1] - b[1];
+                 return e1[1] - e2[1];
              }
          });
          
