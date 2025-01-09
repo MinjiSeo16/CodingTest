@@ -11,8 +11,6 @@ class Solution {
             }
         }
         
-        
-        
         return set.stream().mapToInt(Integer::intValue).toArray();
     }
 }
