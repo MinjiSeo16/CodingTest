@@ -1,0 +1,15 @@
+import java.io.*;
+class Main {
+	static final long num = 1000000007;
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int N = Integer.parseInt(br.readLine());
+
+		long answer = 1;
+		for(int i = 1; i <= N; i++) {
+			answer = (answer * i) % num;
+		}
+		
+		System.out.println(answer);
+	}
+}
