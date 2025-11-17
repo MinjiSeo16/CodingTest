@@ -1,0 +1,27 @@
+import java.io.*;
+import java.util.*;
+
+class Main {
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int N = Integer.parseInt(st.nextToken());
+		int c = Integer.parseInt(st.nextToken());
+
+		st = new StringTokenizer(br.readLine());
+		int count = 1; //화면에 남은 글자 수
+		int prev = Integer.parseInt(st.nextToken()); //첫 숫자 입력 시간
+		
+		for(int i = 1; i < N; i++) {
+			int cur = Integer.parseInt(st.nextToken());
+			if(cur - prev <= c) {
+				count++;
+			} else {
+				count = 1;
+			}
+			prev = cur;
+		}
+
+		System.out.println(count);
+	}
+}
