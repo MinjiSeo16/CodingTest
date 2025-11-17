@@ -1,0 +1,39 @@
+import java.io.*;
+import java.util.*;
+
+class Main {
+	static int cloudFood;
+	static int windFood;
+	
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		cloudFood = Integer.parseInt(st.nextToken());
+		windFood = Integer.parseInt(st.nextToken());
+		int Day = Integer.parseInt(br.readLine());
+
+		for(int i = 1; i <= Day; i++) {
+			if(i % 2 != 0) {  //홀수날 구름 -> 바람
+				giveFood(true);
+			}
+			else {   //짝수날 바람 -> 구름
+				giveFood(false);
+			}
+		}
+
+		System.out.println(cloudFood + " " + windFood);
+	}
+
+	private static void giveFood(boolean cloudGive) {
+		if(cloudGive) {
+			int give = (cloudFood % 2 == 0) ? cloudFood / 2 : (cloudFood / 2) + 1;
+			cloudFood -= give;
+			windFood += give;
+		}
+		else {
+			int give = (windFood % 2 == 0) ? windFood / 2 : (windFood / 2) + 1;
+			windFood -= give;
+			cloudFood += give;
+		}
+	}
+}
