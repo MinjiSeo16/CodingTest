@@ -5,23 +5,24 @@ class Solution {
         Queue<Integer> queue = new LinkedList<>();
         ArrayList<Integer> result = new ArrayList<>();
         
-        for(int i = 0; i < speeds.length; i++){
+        for(int i = 0; i < speeds.length; i++) {
             queue.offer(getRestDays(progresses[i], speeds[i]));
         }
         
         int max = queue.poll();
         int count = 1;
-        while(!queue.isEmpty()){
-            int restDays = queue.poll();
+        
+        while(!queue.isEmpty()) {
+            int restDay = queue.poll();
             
-            if(restDays <= max){
+            if(restDay <= max) {
                 count++;
             }
             
-            if(restDays > max){
+            if(restDay > max) {
                 result.add(count);
-                max = restDays;
                 count = 1;
+                max = restDay;
             }
         }
         result.add(count);
@@ -30,9 +31,10 @@ class Solution {
     }
     
     public static int getRestDays(int p, int s){
-        if((100 - p) % s != 0){
+        if((100 - p) % s != 0) {
             return (100 - p) / s + 1;
         }
+        
         return (100 - p) / s;
     }
 }
