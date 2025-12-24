@@ -2,22 +2,23 @@ import java.util.Arrays;
 
 class Solution {
     public String solution(int[] numbers) {
-        String[] strNumber = new String[numbers.length];
-        for(int i = 0; i < numbers.length; i++){
-            strNumber[i] = String.valueOf(numbers[i]);
+        String[] strNum = new String[numbers.length];
+        
+        for(int i = 0; i < numbers.length; i++) {
+            strNum[i] = numbers[i] + "";
         }
         
-        Arrays.sort(strNumber, (a, b) -> (b + a).compareTo(a+b));
+        Arrays.sort(strNum, (a, b) -> (b + a).compareTo(a + b)); 
         
-        StringBuilder result = new StringBuilder();
-        for(String str : strNumber){
-            result.append(str);
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < strNum.length; i++) {
+            sb.append(strNum[i]);
         }
         
-        if(result.charAt(0) == '0'){
+        if(sb.charAt(0) == '0') {
             return "0";
         }
         
-        return result.toString();
+        return sb.toString();
     }
 }
